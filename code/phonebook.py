@@ -4,7 +4,7 @@ from tkinter import ttk
 #colors
 co0 = "#ffffff"
 co1 = "#000000"
-co2 = "#4456F0"
+co2 = "#40A2D8"
 
 window = Tk()
 window.title ("")
@@ -28,10 +28,34 @@ app_name.place(x=300,y=10)
 
 #frame down widgets
 #Phần Tên
-l_name = Label(frame_down, text="Tên:",width=20,height=1,font=('Ivy 10'),bg=co0,anchor=NW)
+l_name = Label(frame_down, text="Tên:",width=20,height=1,font=('font\ja-jp.ttf',10),bg=co0,anchor=NW)
 l_name.place(x=10,y=20)
 e_name = Entry(frame_down, width=25, justify='left',highlightthickness=1, relief="solid")
-e_name.place(x=80,y=20)
+e_name.place(x=100,y=20)
+
+#Phần số điện thoại
+l_telephone = Label(frame_down, text="Số điện thoại:",width=20,height=1,font=('font\ja-jp.ttf',10),bg=co0,anchor=NW)
+l_telephone.place(x=10,y=50)
+e_telephone = Entry(frame_down, width=25, justify='left',highlightthickness=1, relief="solid")
+e_telephone.place(x=100,y=50)
+
+#Phần số email
+l_mail = Label(frame_down, text="Email:",width=20,height=1,font=('font\ja-jp.ttf',10),bg=co0,anchor=NW)
+l_mail.place(x=10,y=80)
+e_mail = Entry(frame_down, width=25, justify='left',highlightthickness=1, relief="solid")
+e_mail.place(x=100,y=80)
+
+#Phần địa chỉ
+l_address = Label(frame_down, text="Địa Chỉ:",width=20,height=1,font=('font\ja-jp.ttf',10),bg=co0,anchor=NW)
+l_address.place(x=10,y=110)
+e_address = Entry(frame_down, width=25, justify='left',highlightthickness=1, relief="solid")
+e_address.place(x=100,y=110)
+
+#phím search
+b_search = Button(frame_down, text="Tìm kiếm", bg=co2, font=('font\ja-jp.ttf',11))
+b_search.place(x=350,y=20)
+b_search = Entry(frame_down, width=20, justify='left',font=('font\ja-jp.ttf',11),highlightthickness=1, relief="solid")
+b_search.place(x=440,y=20)
 
 
 window.mainloop()
