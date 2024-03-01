@@ -7,7 +7,7 @@ co1 = "#000000"
 co2 = "#40A2D8"
 
 window = Tk()
-window.title ("")
+window.title ("Danh Bạ")
 window.geometry('700x600')
 window.configure(background=co0)
 window.resizable(width=FALSE, height=FALSE)
