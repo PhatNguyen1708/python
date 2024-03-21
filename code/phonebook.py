@@ -12,6 +12,19 @@ window.geometry('700x600')
 window.configure(background=co0)
 window.resizable(width=FALSE, height=FALSE)
 
+#functions
+def show():
+    global tree
+
+    listheader = ['Tên','Số điện thoại','Email','Địa Chỉ',]
+
+    tree = ttk.Treeview(frame_table, selecmode="extended",colums=listheader)
+
+    vsb = ttk.Scrollbar(frame_table, orient="vertical", command=tree.yview)
+    hsb = ttk.Scrollbar(frame_table, orient="horizontal", command=tree.yview)
+
+    
+
 #Khung trang
 frame_up = Frame(window, width=700, height= 50, bg=co2)
 frame_up.grid(row=0, column=0, padx=0, pady=0)
@@ -52,10 +65,21 @@ e_address = Entry(frame_down, width=25, justify='left',highlightthickness=1, rel
 e_address.place(x=100,y=110)
 
 #phím search
-b_search = Button(frame_down, text="Tìm kiếm", bg=co2, font=('font\ja-jp.ttf',11))
+b_search = Button(frame_down, text="Tìm kiếm",width=10, height=1, bg=co2, font=('font\ja-jp.ttf',11))
 b_search.place(x=350,y=20)
-b_search = Entry(frame_down, width=20, justify='left',font=('font\ja-jp.ttf',11),highlightthickness=1, relief="solid")
-b_search.place(x=440,y=20)
+b_search = Entry(frame_down, width=22, justify='left',font=('font\ja-jp.ttf',11),highlightthickness=1, relief="solid")
+b_search.place(x=470,y=20)
 
+b_view= Button(frame_down, text="Xem",width=10, height=1, bg=co2, font=('font\ja-jp.ttf',11))
+b_view.place(x=350,y=50)
+
+b_add= Button(frame_down, text="Thêm",width=10, height=1, bg=co2, font=('font\ja-jp.ttf',11))
+b_add.place(x=550,y=50)
+
+b_update= Button(frame_down, text="Cập nhật",width=10, height=1, bg=co2, font=('font\ja-jp.ttf',11))
+b_update.place(x=550,y=85)
+
+b_delete= Button(frame_down, text="Xóa",width=10, height=1, bg=co2, font=('font\ja-jp.ttf',11))
+b_delete.place(x=550,y=120)
 
 window.mainloop()
