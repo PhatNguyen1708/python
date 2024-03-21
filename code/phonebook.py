@@ -12,19 +12,6 @@ window.geometry('700x600')
 window.configure(background=co0)
 window.resizable(width=FALSE, height=FALSE)
 
-#functions
-def show():
-    global tree
-
-    listheader = ['Tên','Số điện thoại','Email','Địa Chỉ',]
-
-    tree = ttk.Treeview(frame_table, selecmode="extended",colums=listheader)
-
-    vsb = ttk.Scrollbar(frame_table, orient="vertical", command=tree.yview)
-    hsb = ttk.Scrollbar(frame_table, orient="horizontal", command=tree.yview)
-
-    
-
 #Khung trang
 frame_up = Frame(window, width=700, height= 50, bg=co2)
 frame_up.grid(row=0, column=0, padx=0, pady=0)
@@ -32,8 +19,43 @@ frame_up.grid(row=0, column=0, padx=0, pady=0)
 frame_down = Frame(window, width=700, height= 150, bg=co0)
 frame_down.grid(row=1, column=0, padx=0, pady=50)
 
-frame_table = Frame(window, width=700, height= 100, bg=co2)
-frame_table.grid(row=2, column=0, columnspan=2, padx=0, pady=50)
+frame_table = Frame(window, width=700, height= 150, bg=co0, relief="flat")
+frame_table.grid(row=2, column=0, columnspan=2, padx=10, pady=10,sticky=NW)
+
+#functions
+def show():
+    global tree
+
+    listheader = ["Tên", "Số điện thoại", "Email", "Địa Chỉ"]
+
+    demolist = [["Nguyễn Tấn Phát","0334437398","nphat3549@gmail.com","35/8 Nguyễn Hữu Tiến"]]
+
+    tree = ttk.Treeview(frame_table, selectmode="extended",columns=listheader, show="headings")
+
+    vsb = ttk.Scrollbar(frame_table, orient="vertical", command=tree.yview)
+    hsb = ttk.Scrollbar(frame_table, orient="horizontal", command=tree.xview)
+
+    tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+
+    tree.grid(column=0, row = 0, sticky='nsew')
+    vsb.grid(column=1, row = 0,sticky='ns')
+    hsb.grid(column=0, row = 1,sticky='ew')
+
+    #tree head
+    tree.heading(0, text='Tên', anchor=NW)
+    tree.heading(1, text='Số Điện Thoại', anchor=NW)
+    tree.heading(2, text='Email', anchor=NW)
+    tree.heading(3, text='Địa chỉ', anchor=NW)
+
+    tree.column(0,width=150,anchor='nw')
+    tree.column(1,width=150,anchor='nw')
+    tree.column(2,width=150,anchor='nw')
+    tree.column(3,width=200,anchor='nw')
+
+    for item in demolist:
+        tree.insert('','end',values=item)
+
+show()
 
 #frame up widgets
 app_name = Label(frame_up, text="DANH BẠ",height= 1, font=('Verdana 17 bold',20),fg=co0,bg=co2 )
